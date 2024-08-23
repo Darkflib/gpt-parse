@@ -1,7 +1,7 @@
-from asyncio.subprocess import SubprocessStreamProtocol
+#from asyncio.subprocess import SubprocessStreamProtocol
 import json
-import sys
-import os
+#import sys
+#import os
 import datetime
 
 
@@ -25,9 +25,9 @@ def main():
         print(f"Title : {entry['title']}")
         # decode create_time timestamp
         created = datetime.datetime.fromtimestamp(entry["create_time"])
-        print(f"Created : {created.strftime("%Y-%m-%d %H:%M:%S")}")
+        print(f"Created : {created.strftime('%Y-%m-%d %H:%M:%S')}")
         updated = datetime.datetime.fromtimestamp(entry["update_time"])
-        print(f"Updated : {updated.strftime("%Y-%m-%d %H:%M:%S")}")
+        print(f"Updated : {updated.strftime('%Y-%m-%d %H:%M:%S')}")
 
         # dump the entry except for "mapping" key
         for key, value in entry.items():
@@ -37,7 +37,7 @@ def main():
 
         # print the mapping keys for each entry
         for key, value in entry["mapping"].items():
-            print(f"key : {key} - parent : {value.get('parent')} - children : {value.get('children')}")
+            print(f"key : {key} - parent : {value.get('parent')} - children : {value.get('children')}")  # noqa: E501
             if value.get("parent") is None:
                 root = key
         print(f"Root : {root}")
