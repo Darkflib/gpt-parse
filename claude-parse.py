@@ -23,7 +23,7 @@ def main():
         chat_keys = list(data[0]['chat_messages'][0].keys())
         print(chat_keys)
         tz_format = '%Y-%m-%dT%H:%M:%S.%fZ'
-        for i, entry in enumerate(data[:2], start=1):
+        for i, entry in enumerate(data, start=1):
     #       for field in ['uuid', 'name', 'created_at', 'updated_at']:
     #           print(f"  {field}: {entry[field]}")
             print(f"{i} Title : {entry['name']} [{entry['uuid']}]")
